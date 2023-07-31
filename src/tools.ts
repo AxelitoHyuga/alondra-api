@@ -43,6 +43,16 @@ export function configure() {
     globalThis.VERSION = '7.3.1'
 }
 
+export class CustomError {
+    code: number;
+    message: string;
+
+    constructor(code: number, message: string) {
+        this.code = code;
+        this.message = message;
+    }
+}
+
 export function getExcelColumnLetter(columnNumber: number): string {
     let dividend = columnNumber;
     let columnName = '';

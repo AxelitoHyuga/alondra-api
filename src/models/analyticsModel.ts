@@ -177,9 +177,9 @@ const getCustomerInvoiceLinesReport = (filters: CustomerInvoiceFilters, group?: 
             }
             if (filters.customer) {
                 if (Array.isArray(filters.customer)) {
-                    sql += ` AND cin.customer_id >= ${filters.customer} AND cin.customer_id <= ${filters.customer}`;
+                    sql += ` AND cin.customer_id >= ${filters.customer[0]} AND cin.customer_id <= ${filters.customer[1]}`;
                 } else {
-                    sql += ` AND cin.customer_id IN (${ filters.customer })`;
+                    sql += ` AND cus.name LIKE '%${ filters.customer.replace('', '%%') }%'`;
                 }
             }
             if (filters.reference) {
@@ -207,7 +207,7 @@ const getCustomerInvoiceLinesReport = (filters: CustomerInvoiceFilters, group?: 
                 sql += ` AND cin.invoice_status_id IN (${ filters.invoiceStatusId })`;
             }
             if (filters.productSearch) {
-                if (Array.isArray(filters.productRange)) {
+                if (Array.isArray(filters.productSearch)) {
                     sql += ` AND pro.product_id >= ${filters.productSearch[0]} AND pro.product_id <= ${filters.productSearch[1]}`;
                 } else {
                     const search = filters.productSearch.replace(/\s/gm, '%%');
@@ -220,8 +220,8 @@ const getCustomerInvoiceLinesReport = (filters: CustomerInvoiceFilters, group?: 
             if (filters.productCategoryId) {
                 sql += ` AND (pro.product_category_id = ${filters.productCategoryId} OR prc.parent_id = ${filters.productCategoryId})`;
             }
-            if (filters.productManufaturerId) {
-                sql += ` AND pro.manufacturar_id = ${filters.productManufaturerId}`;
+            if (filters.productManufacturerId) {
+                sql += ` AND pro.manufacturer_id = ${filters.productManufacturerId}`;
             }
         }
 

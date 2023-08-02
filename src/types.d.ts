@@ -17,7 +17,7 @@ export interface AnalyticsFilters {
 export interface CustomerInvoiceFilters extends AnalyticsFilters {
     productSearch?: string | Array,
     productCategoryId?: string | number,
-    productManufaturerId?: string | number,
+    productManufacturerId?: string | number,
     reference?: string,
     transactionSequenceId?: string | number,
     invoiceStatusId?: string | number,

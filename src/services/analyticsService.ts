@@ -559,7 +559,7 @@ const generateCustomerInvoiceExcel = async (filtersUn: CustomerInvoiceFilters): 
         filterText +=  filters.customer != null ? `${filterText.length > 0 ? '\n' : ''} Cliente: ${filters.customer}` : '';
         filterText +=  filters.salesperson != null ? `${filterText.length > 0 ? '\n' : ''} Vendedor: ${filters.salesperson}` : '';
         filterText +=  filters.productSearch != null ? `${filterText.length > 0 ? '\n' : ''} Producto: ${filters.productSearch}` : '';
-        filterText +=  filters.productManufaturerId != null ? `${filterText.length > 0 ? '\n' : ''} Marca de producto: ${filters.productManufaturerId}` : '';
+        filterText +=  filters.productManufacturerId != null ? `${filterText.length > 0 ? '\n' : ''} Marca de producto: ${filters.productManufacturerId}` : '';
         filterText +=  filters.productCategoryId != null ? `${filterText.length > 0 ? '\n' : ''} Categoria de producto: ${filters.productCategoryId}` : '';
         filterText +=  filters.transactionSequenceId != null ? `${filterText.length > 0 ? '\n' : ''} Tipo de comprobante: ${filters.transactionSequenceId}` : '';
         filterText +=  filters.showCanceled != null ? `${filterText.length > 0 ? '\n' : ''} Mostrar cancelados: ${filters.showCanceled}` : '';
